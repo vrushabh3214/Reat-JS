@@ -1,5 +1,6 @@
 import { useState } from 'react';
 
+// eslint-disable-next-line react/prop-types
 function Square({ value, onSquareClick }) {
     return (
         <button className="square" onClick={onSquareClick}>
@@ -8,11 +9,13 @@ function Square({ value, onSquareClick }) {
     );
 }
 
+// eslint-disable-next-line react/prop-types
 function Board({ xIsNext, squares, onPlay }) {
     function handleClick(i) {
         if (calculateWinner(squares) || squares[i]) {
             return;
         }
+        // eslint-disable-next-line react/prop-types
         const nextSquares = squares.slice();
         if (xIsNext) {
             nextSquares[i] = 'X';
@@ -32,7 +35,7 @@ function Board({ xIsNext, squares, onPlay }) {
 
     return (
         <>
-            <div className="status">{status}</div>
+            <h1 className="status">{status}</h1>
             <div className="board-row">
                 <Square value={squares[0]} onSquareClick={() => handleClick(0)} />
                 <Square value={squares[1]} onSquareClick={() => handleClick(1)} />
