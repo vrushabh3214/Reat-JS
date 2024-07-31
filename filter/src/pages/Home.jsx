@@ -13,7 +13,7 @@ export default function Home() {
 
 
     useEffect(() => {
-        fetch("https://dummyapi.online/api/movies")
+        fetch("https://dummyapi.online/api/products")
             .then((res) => res.json())
             .then((data) => {
                 console.log(data)
