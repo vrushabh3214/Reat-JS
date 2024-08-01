@@ -32,13 +32,6 @@ export default function Home() {
     inputCategory == "" ? filteredData = productData : filteredData = filteredData ;
 
 
-    // if (inputCategory == "") {
-    //     filteredData = productData
-    // } else {
-    //     filteredData === filteredData
-    // }
-
-
     return (
         <div>
 

@@ -1,0 +1,60 @@
+{
+    "fuits": [
+        {
+            "id": 1,
+            "fruits": "apple"
+        },
+        {
+            "id": 2,
+            "fruits": "banana"
+        },
+        {
+            "id": 3,
+            "fruits": "mango"
+        },
+        {
+            "id": "2571",
+            "fruits": "chocolate",
+            "Quantity": "32"
+        },
+        {
+            "id": "7720",
+            "fruits": "orange",
+            "Quantity": "10"
+        },
+        {
+            "id": "04d1",
+            "fruits": "kiwi",
+            "Quantity": "21"
+        }
+    ],
+    "vegies": [
+        {
+            "id": 1,
+            "fruits": "palak"
+        },
+        {
+            "id": 2,
+            "fruits": "tamatar"
+        },
+        {
+            "id": 3,
+            "fruits": "katahal"
+        },
+        {
+            "id": "2571",
+            "fruits": "Luaki",
+            "Quantity": "32"
+        },
+        {
+            "id": "7720",
+            "fruits": "baigan",
+            "Quantity": "10"
+        },
+        {
+            "id": "04d1",
+            "fruits": "Kanda",
+            "Quantity": "21"
+        }
+    ]
+}
