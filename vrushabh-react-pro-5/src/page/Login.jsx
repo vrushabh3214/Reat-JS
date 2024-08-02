@@ -25,6 +25,7 @@ function Login() {
 
   return (<>
     <form onSubmit={handleSubmit} className='form'>
+      <h2>Login</h2>
       <label>
         Email:
         <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} />
