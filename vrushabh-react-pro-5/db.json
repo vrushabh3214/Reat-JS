@@ -1,0 +1,31 @@
+{
+  "signup-users": [
+    {
+      "id": "8b03",
+      "email": "sdvdsv@sdgd",
+      "password": "dgsdgsr"
+    },
+    {
+      "id": "da19",
+      "email": "cdf@dxdv",
+      "password": "dsvdv"
+    },
+    {
+      "id": "2896",
+      "email": "kjsdnjkfbsk@jskdgs",
+      "password": "ksdkjgsdkj"
+    }
+  ],
+  "login-users": [
+    {
+      "id": "e335",
+      "email": "zkjfzkjb@ajkd",
+      "password": "ldjkdsd"
+    },
+    {
+      "id": "e9a5",
+      "email": "zxcsdszxc@dfg",
+      "password": "dfsdfassdfc"
+    }
+  ]
+}
