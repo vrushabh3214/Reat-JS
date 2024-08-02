@@ -1,36 +1,26 @@
 {
   "signup-users": [
     {
-      "id": "8b03",
-      "email": "sdvdsv@sdgd",
-      "password": "dgsdgsr"
+      "id": "d31f",
+      "email": "jd@gmail.com",
+      "password": "JD@321456"
     },
     {
-      "id": "da19",
-      "email": "cdf@dxdv",
-      "password": "dsvdv"
-    },
-    {
-      "id": "2896",
-      "email": "kjsdnjkfbsk@jskdgs",
-      "password": "ksdkjgsdkj"
+      "id": "125d",
+      "email": "vru@gmail.com",
+      "password": "vru32146"
     }
   ],
   "login-users": [
     {
-      "id": "e335",
-      "email": "zkjfzkjb@ajkd",
-      "password": "ldjkdsd"
+      "id": "8c7d",
+      "email": "vru@gmail.com",
+      "password": "vrushabh"
     },
     {
-      "id": "e9a5",
-      "email": "zxcsdszxc@dfg",
-      "password": "dfsdfassdfc"
-    },
-    {
-      "id": "1f15",
-      "email": "bjsdhfbsuu@dbsgjsh",
-      "password": "jnbjdsifiu"
+      "id": "a205",
+      "email": "jd23@gmail.com",
+      "password": "jd12354"
     }
   ]
 }

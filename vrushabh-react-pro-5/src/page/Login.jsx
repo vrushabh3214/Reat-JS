@@ -18,6 +18,7 @@ function Login() {
       body: JSON.stringify(user)
     });
     if (response.ok) {
+      alert("Login Successful");
       setEmail(''); // Clear the email input field
       setPassword(''); // Clear the password input field
     }

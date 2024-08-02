@@ -4,8 +4,8 @@ import { useEffect, useState } from "react";
 
 export default function Home() {
 
-  const [studentData, setStudentData] = useState([]);
-  
+  const [loginUser, setloginUser] = useState([]);
+
 
 
   // get
@@ -15,11 +15,11 @@ export default function Home() {
 
     fetch("http://localhost:5000/login-users")
       .then((res) => res.json())
-      .then((studentData) => {
-        console.log(studentData)
-        setStudentData(studentData)
+      .then((loginUser) => {
+        // console.log(loginUser)
+        setloginUser(loginUser)
       })
-      .catch((err) => { console.log("data not found",err) })
+      .catch((err) => { console.log("data not found", err) })
 
   }
 
@@ -44,21 +44,19 @@ export default function Home() {
 
   };
   // <div>
+  return <div>
     {
-      studentData.map((item) => {
-        return <div key={item.id}>
-          {/* <p>id:{item.id}</p> */}
+      loginUser.map((item) => {
+        return <div key={item.id} className="user">
           <h3>Email: {item.email}</h3>
           <p>Password :{item.password}</p>
-          {/* <p>Marrid: {item.isMarried ? "Married" : "Unmarried"}</p> */}
-          <br />
+          
           <button onClick={() => handleDelete(item.id)} >Delete</button>
-
-
-
+     
         </div>
       })
     }
-  // </div>
+
+  </div>
 }
 

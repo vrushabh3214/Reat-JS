@@ -18,6 +18,7 @@ function Signup() {
       body: JSON.stringify(user)
     });
     if (response.ok) {
+      alert("Signup successful")
       setEmail(''); // Clear the email input field
       setPassword(''); // Clear the password input field
     }
@@ -25,6 +26,7 @@ function Signup() {
 
   return (
     <form onSubmit={handleSubmit} className='form'>
+      <h2>Sign UP</h2>
       <label>
         Email:
         <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} />
