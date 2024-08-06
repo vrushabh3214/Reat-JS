@@ -52,7 +52,7 @@ export default function Home() {
                     console.log(data)
                     setStudentData(data)
                 })
-                .catch((err) => { console.log("data not found") })
+                .catch((err) => { console.log("data not found",err) })
         }
 
 
