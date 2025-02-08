@@ -1,0 +1,41 @@
+.groupDashboard {
+  height: 80vh;
+  padding: 0 2rem;
+  h2 {
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    font-weight: 900;
+  }
+  .owesBox {
+    width: 100%;
+    height: auto;
+    border: 1px solid white;
+    padding: 0.6rem 1rem;
+    background-color: var(--box);
+    border-radius: 5px;
+    h1 {
+      margin-bottom: 1rem;
+      color: dimgrey;
+      text-align: center;
+    }
+  }
+  .billList {
+    width: 100%;
+    h2 {
+      text-align: center;
+      font-size: 1rem;
+      margin: 1rem 0;
+      color: var(--color);
+    }
+    .bill {
+      width: 100%;
+      background-color: var(--box);
+      padding: 0.5rem;
+      margin-top: 0.6rem;
+      border-radius: 5px;
+      font-size: 0.75rem;
+      color: white;
+      font-weight: 600;
+    }
+  }
+}

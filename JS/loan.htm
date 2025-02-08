@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loan Payment Calculator</title>
+</head>
+
+<body>
+    <h1>Loan Payment Calculator</h1>
+    <table border="1" cellpadding="2" cellspacing="0">
+        <tr>
+            <th>Principal</th>
+            <td><input type="number" id="p"></td>
+        </tr>
+        <tr>
+            <th>Interest Rate (%)</th>
+            <td><input type="number" id="r"></td>
+        </tr>
+        <tr>
+            <th>Loan Term (Months)</th>
+            <td><input type="number" id="n"></td>
+        </tr>
+        <tr>
+            <th>Monthly Payment</th>
+            <td><span id="mp"></span></td>
+        </tr>
+        <tr>
+            <th>Total Payment</th>
+            <td><span id="tp"></span></td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <button onclick="calculatePayment()">Calculate Payment</button>
+            </td>
+
+        </tr>
+    </table>
+    <script>
+        function calculatePayment() {
+            var p = parseFloat(document.getElementById("p").value);
+            var r = parseFloat(document.getElementById("r").value) / 12 / 100;
+            var n = parseFloat(document.getElementById("n").value);
+            var mp = p * r * (1 + r) ** n / ((1 + r) ** n - 1);
+            var tp = mp * n;
+            document.getElementById("mp").textContent = mp.toFixed(0);
+            document.getElementById("tp").textContent = tp.toFixed(0);
+        }
+    </script>
+</body>
+
+</html>

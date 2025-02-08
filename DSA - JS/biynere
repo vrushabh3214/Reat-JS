@@ -1,0 +1,56 @@
+// Binary search
+function binarySearch(arr, target) {
+    let start = 0;
+    let end = arr.length - 1;
+
+    while (start <= end) {
+        let mid = Math.floor((start + end) / 2);
+
+        if (arr[mid] === target) {
+            return [arr[mid], mid];
+        } else if (arr[mid] < target) {
+            start = mid + 1;
+        } else {
+            end = mid - 1;
+        }
+    }
+
+    return -1;
+}
+
+// Linear search
+function linearSearch(arr, target) {
+    for (let i = 0; i < arr.length; i++) {
+        if (arr[i] === target) {
+            return [arr[i], i];
+        }
+    }
+
+    return -1;
+}
+
+// Two pointer
+function twoPointer(arr, target) {
+    let left = 0;
+    let right = arr.length - 1;
+
+    while (left < right) {
+        if (arr[left] + arr[right] === target) {
+            return [arr[left], arr[right]];
+        } else if (arr[left] + arr[right] < target) {
+            left++;
+        } else {
+            right--;
+        }
+    }
+
+    return [-1, -1];
+}
+
+// Example usage
+const arr = [1, 2, 3, 5, 7, 9];
+let target = 9;
+
+console.log(binarySearch(arr, target));
+console.log(linearSearch(arr, target));
+console.log(twoPointer(arr, target)); 

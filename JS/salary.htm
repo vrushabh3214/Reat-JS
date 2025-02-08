@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Salary Calculator</title>
+</head>
+
+<body>
+    <h1>Salary Calculator</h1>
+    <table border="1" cellpadding="2" cellspacing="0">
+        <tr>
+            <th>Gross Salary</th>
+            <td><input type="number" id="gs"></td>
+        </tr>
+        <tr>
+            <th>Income Tax (%)</th>
+            <td><input type="number" id="incomeTax"></td>
+        </tr>
+        <tr>
+            <th>Employee PF (%)</th>
+            <td><input type="number" id="pf"></td>
+        </tr>
+        <tr>
+            <th>Professional Tax</th>
+            <td><input type="number" id="pTax"></td>
+        </tr>
+        <tr>
+            <th>Take-Home Salary</th>
+            <td><span id="Salary"></span></td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <button onclick="calculateSalary()">Calculate</button>
+            </td>
+        </tr>
+    </table>
+
+    <script>
+        function calculateSalary() {
+            var gs = parseFloat(document.getElementById("gs").value);
+            var incomeTax = parseFloat(document.getElementById("incomeTax").value);
+            var pf = parseFloat(document.getElementById("pf").value);
+            var pTax = parseFloat(document.getElementById("pTax").value);
+
+            var incomeTax = gs * incomeTax / 100;
+            var employeePf = gs * pf / 100;
+            var Salary = gs - incomeTax - employeePf - pTax;
+
+            document.getElementById("Salary").innerHTML = Salary.toFixed(2);
+        }
+    </script>
+</body>
+
+</html>

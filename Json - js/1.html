@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <table>
+        <tr>
+            <td>Name :</td>
+            <td><input type="text" id="name"></td>
+        </tr>
+        <tr>
+            <td>Age :</td>
+            <td><input type="text" id="age"></td>
+        </tr>
+        <tr>
+            <td>Email :</td>
+            <td><input type="text" id="email"></td> </tr>
+        <tr>
+            <td colspan="2">
+                <input type="submit" value="Detail View" onclick="deta()" style="width: 100%; height: 30px;">
+            </td>
+        </tr>
+    </table>
+
+</head>
+
+<body>
+
+    <script>
+
+        var student = [
+            {
+                name: "vrushabh",
+                age: 19,
+                email: 'vru@gmail.com'  // Corrected email field name
+            },
+            {
+                name: "bansi",
+                age: 24,
+                email: 'bansi@gmail.com'
+            },
+            // ... other students
+        ];
+
+        console.log(student);
+
+        function deta() {
+
+            var name = document.getElementById('name').value;
+            var age = document.getElementById('age').value;
+            var email = document.getElementById('email').value;
+
+            var su = {
+                name: name,
+                age: age,
+                email: email  // Corrected email field name
+            };
+
+            student.push(su);
+            JSON.stringify(student)
+            localStorage.setItem('sud', student); // Removed unnecessary stringify
+            deta_view();
+        }
+
+        function deta_view() {
+
+            var studentData = localStorage.getItem('sud'); // Removed unnecessary arguments
+            var view = JSON.parse(studentData);
+
+            var deta = "<table><tr><td>Name</td><td>Age</td><td>Email</td></tr>";
+
+            for (let i = 0; i < view.length; i++) {
+                deta += `<tr>`;
+                deta += `<td>${view[i].name}</td>`; // Use dot notation for object properties
+                deta += `<td>${view[i].age}</td>`;
+                deta += `<td>${view[i].email}</td>`; // Use dot notation for object properties
+                deta += `</tr>`;
+            }
+
+            deta += `</table>`;
+
+            document.body.innerHTML = deta; // Display the table in the body
+        }
+
+        deta_view(); // Call deta_view initially to display existing data, if any
+
+    </script>
+</body>
+
+</html>

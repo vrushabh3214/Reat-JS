@@ -1,0 +1,48 @@
+<script>
+    function add() {
+        var a = parseInt(prompt("Enter A veliu"));
+        var b = parseInt(prompt("Enter B veliu"));
+        return a + b;
+        // 
+    } 
+    function sab() {
+        var a = parseInt(prompt("Enter A veliu"));
+        var b = parseInt(prompt("Enter B veliu"));
+        return a - b;
+        // console.log("sab ="+ans);
+    } 
+    function mlti() {
+        var a = parseInt(prompt("Enter A veliu"));
+        var b = parseInt(prompt("Enter B veliu"));
+        return a * b;
+        // console.log("mlti ="+ans);
+    } 
+    function diva() {
+        var a = parseInt(prompt("Enter A veliu"));
+        var b = parseInt(prompt("Enter B veliu"));
+        return a / b;
+        // console.log("diva ="+ans);
+    } 
+
+    var choes = parseInt(prompt("1 for add , 2 for sab , 3 for mlti , 4 for div"));
+    switch (choes) {
+        case 1:
+            console.log(add());
+            break;
+        case 2:
+            console.log(sab());
+            break;
+        case 3:
+            console.log(mlti());
+            break;
+        case 4:
+            console.log(diav());
+            break;
+
+        default:
+            console.log("Invelid choes")
+            break;
+    }
+
+
+</script>

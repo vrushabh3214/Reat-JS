@@ -1,0 +1,12 @@
+:root {
+  --background: white;
+  --color: black;
+  --box: #dcdcdc5e;
+  --labelcolor: #dcdcdc5e;
+}
+[data-theme="dark"] {
+  --background: black;
+  --color: white;
+  --box: #1f1f1f;
+  --labelcolor: #5f5757;
+}

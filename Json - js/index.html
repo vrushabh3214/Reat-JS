@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+
+</head>
+
+<body>
+
+<form action="https://register-demo.freecodecamp.org"></form>
+
+
+
+    <table>
+        <input type="text" id="editno">
+        <tr>
+            <td>Name :</td>
+            <td><input type="text" id="name"></td>
+        </tr>
+        <tr>
+            <td>Age :</td>
+            <td><input type="text" id="age"></td>
+        </tr>
+        <tr>
+            <td>Email :</td>
+            <td><input type="text" id="mail"></td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <input type="submit" value="Deta View" onclick="adddata()">
+            </td>
+        </tr>
+    </table>
+
+    <div id="res"></div>
+
+
+    <script>
+
+        var students = [
+            {
+                name: "vrushabh",
+                age: 19,
+                mail: 'vru@gmail.com',
+                no: Math.round(Math.random() * 1000)
+            },
+            {
+                name: "bansi",
+                age: 24,
+                mail: 'bansi@gmail.com',
+                no: Math.round(Math.random() * 1000)
+            },
+            {
+                name: "jaydep",
+                age: 30,
+                mail: 'jay@gmail.com',
+                no: Math.round(Math.random() * 1000)
+            },
+        ];
+
+
+        // var student = JSON.stringify(students);
+        // localStorage.setItem('person', student);
+
+
+
+        function adddata() {
+            var name = document.getElementById("name").value;
+            var age = document.getElementById("age").value;
+            var mail = document.getElementById("mail").value;
+            var editno = document.getElementById("editno").value;
+
+            if (editno == "") {
+                var emp = {
+                    name: name,
+                    age: age,
+                    mail: mail,
+                    no: Math.round(Math.random() * 1000),
+                };
+
+                students.push(emp);
+            }
+            else {
+                for (var i = 0; i < students.length; i++) {
+                    if (students[i]["no"] == editno) {
+                        students[i]["name"] = name;
+                        students[i]["age"] = age;
+                        students[i]["mail"] = mail;
+                    }
+                }
+            }
+
+            var name = document.getElementById("name").value = "";
+            var age = document.getElementById("age").value = "";
+            var mail = document.getElementById("mail").value = "";
+
+            localStorage.setItem("person", JSON.stringify(students));
+
+            deta_view();
+        }
+
+        function deta_view() {
+
+
+            var detaView = localStorage.getItem('person');
+            var view = JSON.parse(detaView);
+
+            var deta = "<table border=''><tr><td>Name</td><td>Age</td><td>Email</td></tr>"
+            for (let i = 0; i < view.length; i++) {
+                deta += `<tr>`;
+                deta += `<td>${view[i]['name']}</td>`
+                deta += `<td>${view[i]['age']}</td>`
+                deta += `<td>${view[i]['mail']}</td>`
+                deta += `<td><a href="javascript:deletedata(${view[i]['no']})">delete</a></td>`
+                deta += `<td><a href="javascript:updatedata(${view[i]['no']})">update data</a></td>`
+                deta += `</tr>`;
+            }
+
+            deta += "</table>";
+            document.getElementById('res').innerHTML = deta;
+        }
+
+        deta_view();
+
+        function deletedata(no) {
+
+            for (let i = 0; i < students.length; i++) {
+                if (students[i]['no'] == no) {
+                    students.splice(i, 1)
+                }
+            }
+            var student = JSON.stringify(students);
+            localStorage.setItem('person', student);
+            deta_view()
+        }
+
+        function updatedata(no) {
+            var update = localStorage.getItem('person');
+            var udate = JSON.parse(update);
+
+            for (var i = 0; i < udate.length; i++) {
+                if (udate[i]["no"] == no) {
+                    document.getElementById("name").value = udate[i]["name"];
+                    document.getElementById("age").value = udate[i]["age"];
+                    document.getElementById("mail").value = udate[i]["mail"];
+                    document.getElementById("editno").value = no;
+                }
+            }
+            var student = JSON.stringify(students);
+            localStorage.setItem('person', student);
+            deta_view()
+        }
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,24 @@
+<script>
+    /**
+ * Definition for singly-linked list.
+ * function ListNode(val, next) {
+ *     this.val = (val===undefined ? 0 : val)
+ *     this.next = (next===undefined ? null : next)
+ * }
+ */
+/**
+ * @param {ListNode} head
+ * @return {boolean}
+ */
+var isPalindrome = function(head) {
+    let str1=""; 
+    let str2=""; 
+    let temp =head; 
+    while(temp !== null){ 
+        str1 = str1 + temp.val; 
+        str2 = temp.val + str2; 
+        temp = temp.next; 
+    }
+    return str1 == str2 
+};
+</script>

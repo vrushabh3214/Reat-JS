@@ -1,0 +1,45 @@
+<table border="1">
+    <tr>
+        <th>unit:</th>
+        <td><input type="text" id="unit"></td>
+    </tr>
+    <tr>
+        <th>Total</th>
+        <td id="total"></td>
+    </tr>
+    <tr>
+        <th>GST</th>
+        <td id="gst"></td>
+    </tr>
+    <tr>
+        <th>Tax</th>
+        <td id="tax"></td>
+    </tr>
+    <tr>
+        <th>Total Pay</th>
+        <td id="pay"></td>
+    </tr>
+    <tr>
+        <td colspan="2"><input type="submit" value="submit" onclick="getans()"></td>
+    </tr>
+</table>
+
+
+<script>
+    function getans() {
+        var unit = parseInt(document.getElementById('unit').value);
+        var price = 8;
+
+        var total = price * unit;
+        document.getElementById('total').innerHTML = total;
+
+        var gst = total * unit / 10;
+        document.getElementById('gst').innerHTML = gst;
+
+        var tax = total * unit / 5;
+        document.getElementById('tax').innerHTML = tax;
+
+        var pay = total + gst + tax;
+        document.getElementById('pay').innerHTML = pay.toFixed(0);
+    }
+</script>

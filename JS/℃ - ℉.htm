@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <table border="1" cellpadding="2" cellspacing="0">
+        <tr>
+            <th>Enter ℃</th>
+            <td><input type="text" id="c"></td>
+        </tr>
+        <tr>
+            <th><button type="submit" onclick="getans()">convert to ℉</button></th>
+            <td>
+                <h3 id="ans" style="margin: 0;"></h3>
+            </td>
+        </tr>
+
+    </table>
+
+
+    <script>
+
+        function getans() {
+            var c = parseInt(document.getElementById("c").value);
+            var ans = (c * 5 / 9) - 32
+            document.getElementById('ans').innerHTML = ans;
+        }
+
+    </script>

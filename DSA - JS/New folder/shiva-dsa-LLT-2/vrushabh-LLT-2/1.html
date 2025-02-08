@@ -1,0 +1,45 @@
+<script>
+    class Node {
+        constructor(data) {
+            this.data = data;
+            this.next = null;
+        }
+    }
+    class LiList {
+        constructor() {
+            this.head = null;
+        }
+        ins(data) {
+            let newData = new Node(data);
+            if (this.head === null) {
+                this.head = newData;
+            }
+            else {
+                let i = this.head;
+                while (i.next !== null) {
+                    i = i.next;
+                }
+                i.next = newData;
+            }
+        }
+        dis() {
+            if (this.head === null) {
+                console.log("List is empty");
+            }
+            else {
+                let i = this.head;
+                while (i !== null) {
+                    console.log(i.data);
+                    i = i.next;
+                }
+            }
+        }
+    }
+    const list = new LiList;
+    list.ins('01');
+    list.ins('02');
+    list.ins('03');
+    list.ins('04');
+    list.ins('05');
+    list.dis();
+</script>

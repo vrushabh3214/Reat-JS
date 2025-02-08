@@ -1,0 +1,142 @@
+<table border="2">
+  <input type="text" id="editno">
+  <tr>
+    <td>Name:</td>
+    <td><input type="text" id="name" /></td>
+  </tr>
+  <tr>
+    <td>Age:</td>
+    <td><input type="text" id="age" /></td>
+  </tr>
+  <tr>
+    <td>E-mail:</td>
+    <td><input type="text" id="mail" /></td>
+  </tr>
+  <tr>
+    <td><input type="submit" value="submit" onclick="addPerson()" /></td>
+  </tr>
+</table>
+
+<br /><br /><br />
+<div id="res"></div>
+<script>
+
+  var emplloye = [
+    {
+      name: "John",
+      age: "20",
+      mail: "j@gamil.com",
+      no: Math.round(Math.random() * 1000),
+    },
+    {
+      name: "dhruv",
+      age: "21",
+      mail: "d@gamil.com",
+      no: Math.round(Math.random() * 1000),
+    },
+    {
+      name: "chhagan",
+      age: "26",
+      mail: "d@gamil.com",
+      no: Math.round(Math.random() * 1000),
+    },
+  ];
+
+
+  function addPerson() {
+
+    var name = document.getElementById("name").value;
+    var age = document.getElementById("age").value;
+    var mail = document.getElementById("mail").value;
+    var editno = document.getElementById("editno").value;
+
+    if (editno == "") {
+      var emp = {
+        name: name,
+        age: age,
+        mail: mail,
+        no: Math.round(Math.random() * 1000),
+      };
+
+      emplloye.push(emp);
+    }
+    else {
+      for (var i = 0; i < emplloye.length; i++) {
+        if (emplloye[i]["no"] == editno) {
+          emplloye[i]["name"] = name;
+          emplloye[i]["age"] = age;
+          emplloye[i]["mail"] = mail;
+        }
+      }
+    }
+
+    localStorage.setItem("emp", JSON.stringify(emplloye));
+
+    var name = document.getElementById("name").value = "";
+    var age = document.getElementById("age").value = "";
+    var mail = document.getElementById("mail").value = "";
+    var editno = document.getElementById("editno").value = "";
+
+    view_data();
+  }
+
+  function view_data() {
+
+    var viewdata = localStorage.getItem("emp");
+    var view = JSON.parse(viewdata);
+
+    var data = "<table border='1'><tr><th>Name</th><th>Age</th><th>Email</th></tr>";
+
+    for (var i = 0; i < view.length; i++) {
+      data += `<tr>`;
+      data += `<td>${view[i]["name"]}</td>`;
+      data += `<td>${view[i]["age"]}</td>`;
+      data += `<td>${view[i]["mail"]}</td>`;
+      data += `<td><a href="javascript:deletedata(${view[i]['no']})">delete</a></td>`;
+      data += `<td><a href="javascript:updatedata(${view[i]['no']})">update</a></td>`;
+      data += `</tr>`;
+    }
+    data += "</table>";
+    document.getElementById("res").innerHTML = data;
+  }
+  view_data();
+
+
+  function deletedata(no) {
+
+    var deldata = localStorage.getItem("emp");
+    var ddata = JSON.parse(deldata);
+
+    for (var i = 0; i < ddata.length; i++) {
+      if (ddata[i]['no'] == no) {
+        ddata.splice(i, 1);
+      }
+    }
+
+    localStorage.setItem('emp', JSON.stringify(ddata));
+    view_data();
+
+  }
+
+  function updatedata(no) {
+
+    var updata = localStorage.getItem("emp");
+    var udata = JSON.parse(updata);
+
+    for (var i = 0; i < udata.length; i++) {
+
+      if (udata[i]['no'] == no) {
+
+        document.getElementById("name").value = udata[i]["name"];
+        document.getElementById("age").value = udata[i]["age"];
+        document.getElementById("mail").value = udata[i]["mail"];
+        document.getElementById("editno").value = no;
+
+      }
+
+    }
+    localStorage.setItem('emp', JSON.stringify(udata));
+    view_data();
+  }
+
+</script>

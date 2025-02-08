@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 
 
-interface TodoItem {
+ TodoItem :{
   userId: number;
   id: number;
   title: string;

@@ -1,0 +1,75 @@
+<script>
+    class Node{
+        constructor(data){
+            this.data = data;
+            this.next = null;
+        }
+    }
+    class LiList{
+        constructor(){
+            this.head = null;
+        }
+        ins(data){ 
+            let newData = new Node(data);
+            if(this.head === null){
+                this.head = newData;
+            }
+            else{
+                let i = this.head;
+                while(i.next!== null){
+                    i = i.next;
+                }
+                i.next = newData;
+            }
+        }
+        display(){ 
+            let str = ""
+            if(this.head === null){
+                console.log("List is empty");
+            }
+            else{
+                let i = this.head;
+                while(i!== null){
+                    str += i.data + ", ";
+                    i = i.next;
+                }
+                console.log(str);
+            }
+        }
+        d_FromEnd(){ 
+            if(this.head === null){
+                console.log("List is empty");
+            }
+            else{
+                let i = this.head;
+                while(i.next.next!== null){
+                    i = i.next;
+                }
+                i.next = null;
+            }
+        }
+        d_FromFront(){ 
+            if(this.head===null){
+                console.log("List is empty");
+            }
+            else{
+                let i = this.head;
+                this.head = this.head.next;
+                i = null;
+            }
+        }
+    }
+    const mylist = new LiList;
+    mylist.ins(1); 
+    mylist.ins(2); 
+    mylist.ins(3); 
+    mylist.ins(4); 
+    mylist.ins(5); 
+    mylist.display(); 
+    console.log("Delete a laste node ");
+    mylist.d_FromEnd(); 
+    mylist.display(); 
+    console.log("Delete a Front node");
+    mylist.d_FromFront(); 
+    mylist.display(); 
+</script>

@@ -1,0 +1,35 @@
+<script>
+
+    class Son {
+        constructor(naem, age) {
+            this.naem = naem;
+            this.age = age;
+        }
+    }
+    class Father extends Son {
+        constructor(F_naem, F_age, naem, age){
+            super(naem, age);
+            this.F_naem = F_naem;
+            this.F_age = F_age;
+        }
+    }
+    class G_Father extends Father {
+        constructor(G_naem, G_age, F_naem, F_age, naem, age){
+            super(F_naem, F_age, naem, age)
+            this.G_naem = G_naem;
+            this.G_age = G_age;
+        }
+        get(){
+            console.log("son naem ="+ this.naem);
+            console.log("son age ="+ this.age);
+            console.log("father naem ="+ this.F_naem);
+            console.log("father age ="+ this.F_age);
+            console.log("G-father naem ="+ this.G_naem);
+            console.log("G-father age ="+ this.G_age);
+        }
+    }
+
+    var abc = new G_Father("manajebhai","90","lalitbhai" ,"45","vrushabh","19");
+    abc.get();
+
+</script>

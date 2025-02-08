@@ -1,0 +1,40 @@
+<table>
+    <tr>
+        <td>A your %:</td>
+        <td><input type="text" id="a"></td>
+    </tr>
+    <tr>
+        <td></td>
+        <td><input type="submit" value="submit" onclick="getans()"></td>
+    </tr>
+</table>
+<h1 id="abc"></h1>
+<script>
+
+    function getans() {
+
+        var a = parseInt(document.getElementById("a").value);
+
+        if (a <= 100) {
+            if (a >= 70) {
+                document.getElementById("abc").innerHTML = "A grade";
+            }
+            else {
+                if (a >= 50) {
+                    document.getElementById("abc").innerHTML = "B grade";
+                } else {
+                    if (a >= 33) {
+                        document.getElementById("abc").innerHTML = "C grade";
+                    }
+                    else {
+                        document.getElementById("abc").innerHTML = "you are fail";
+                    }
+                }
+            }
+
+        }
+
+    }
+
+
+</script>

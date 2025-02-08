@@ -1,0 +1,142 @@
+<table border="1">
+    <input type="text" id="editno">
+    <tr>
+        <td>name</td>
+        <td><input type="text" id="name"></td>
+    </tr>
+    <tr>
+        <td>Age</td>
+        <td><input type="text" id="age"></td>
+    </tr>
+    <tr>
+        <td>GRID</td>
+        <td><input type="text" id="grid"></td>
+    </tr>
+    <tr>
+        <td>Course</td>
+        <td><input type="text" id="course"></td>
+    </tr>
+    <tr>
+        <td><input type="submit" value="Add data" id="btn" onclick="adddata()"></td>
+    </tr>
+</table>
+
+<div id="result"></div>
+
+<script>
+
+    var students = [
+        {
+            name: "Pappu",
+            age: "20",
+            grid: "1234",
+            course: "full-stck",
+            no: Math.round(Math.random() * 1000)
+        },
+        {
+            name: "Piyush",
+            age: "18",
+            grid: "4321",
+            course: "AI/ML",
+            no: Math.round(Math.random() * 1000)
+        },
+        {
+            name: "Raj",
+            age: "22",
+            grid: "7654",
+            course: "App-dev",
+            no: Math.round(Math.random() * 1000)
+        }
+    ]
+
+
+    function adddata() {
+        var name = document.getElementById("name").value;
+        var age = document.getElementById("age").value;
+        var grid = document.getElementById("grid").value;
+        var course = document.getElementById("course").value;
+        var editno = document.getElementById("editno").value;
+
+        if (editno) {
+            for (var i = 0; i < adata.length; i++) {
+                if(adata(i)["no"] == editno){
+                    adata(i)["name"] == editno;
+                    adata(i)["name"] == name;
+                    adata(i)["grid"] == grid;
+                    adata(i)["course"] == course;
+                }
+            }
+
+
+        }
+        else {
+
+            var stu = {
+                name: name,
+                age: age,
+                grid: grid,
+                course: course,
+                no: Math.round(Math.random() * 1000),
+            };
+        }
+
+        // var name = document.getElementById("name").value = "";
+        // var age = document.getElementById("age").value = "";
+        // var grid = document.getElementById("grid").value = "";
+        // var course = document.getElementById("course").value = "";
+
+        students.push(stu);
+        localStorage.setItem("students", JSON.stringify(students));
+
+        view_data()
+    }
+
+    function view_data() {
+        var viewdata = localStorage.getItem("students");
+        var view = JSON.parse(viewdata);
+
+        var data = "<table border=1><tr><th>name</th><th>age</th><th>grid</th><th>course</th></tr>";
+        for (var i = 0; i < view.length; i++) {
+            data += `<tr>`;
+            data += `<td>${view[i]['name']}</td>`;
+            data += `<td>${view[i]['age']}</td>`;
+            data += `<td>${view[i]['grid']}</td>`;
+            data += `<td>${view[i]['course']}</td>`;
+            data += `<td><a href='javascript:ddelet(${view[i]['no']})'>Delete</a></td>`;
+            data += `<td><a href='javascript:updatedata(${view[i]['no']})'>update data</a></td>`;
+            data += `</tr>`;
+        }
+
+        data += "</table>";
+
+        document.getElementById("result").innerHTML = data;
+    }
+    view_data();
+
+    function ddelet(no) {
+        for (var i = 0; i < students.length; i++) {
+            if (students[i]["no"] == no) {
+                students.splice(i, 1);
+            }
+        }
+        localStorage.setItem('students', JSON.stringify(students));
+        view_data();
+    }
+
+    function updatedata(no) {
+        var update = localStorage.getItem("students");
+        var udate = JSON.stringify(update);
+
+        for (var i = 0; i < udate.length; i++) {
+            if (udate(i)["no"] == no) {
+                document.getElementById("name").value = udate(i)["name"];
+                document.getElementById("age").value = udate(i)["age"];
+                document.getElementById("grid").value = udate(i)["grid"];
+                document.getElementById("course").value = udate(i)["course"];
+                document.getElementById("editno").value ="update data";
+            }
+        }
+    }
+
+
+</script>

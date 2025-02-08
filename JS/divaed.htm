@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>divaed</title>
+</head>
+
+<body>
+
+    <table border="1" cellpadding="2" cellspacing="0">
+        <tr>
+            <th>Enter A veleu</th>
+            <td><input type="text" id="a"></td>
+        </tr>
+        <tr>
+            <th>Enter B veleu</th>
+            <td><input type="text" id="b"></td>
+        </tr>
+        <tr>
+            <th><button type="submit" onclick="getans()">Totel</button></th>
+            <td>
+                <h3 id="ans" style="margin: 0;"></h3>
+            </td>
+        </tr>
+    </table>
+
+
+
+
+    <script>
+
+        function getans() {
+            var a = parseInt(document.getElementById("a").value);
+            var b = parseInt(document.getElementById("b").value);
+            var ans = a / b;
+            document.getElementById('ans').innerHTML = ans;
+        }
+
+    </script>
+
+</body>
+
+</html>
